@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\title{Tarea 5 - Metodos Computacionales}
+\author{Carlos Felipe Navarrete}
+
+\begin{document}
+
+\maketitle
+En este documento se resumen los resultados obtenidos en el desarrollo de la tarea 5 de Metodos Computacionales. En esta tarea utilizamos los metodos de Montecarlo, MCMC, para encontrar el mayor radio dentro del poro de una celula y el mejor fit para un grupo de datos de un circuito RC.
+
+\section{Canales ionicos}
+
+Para este punto se utilizo un programa en C que realizaba caminatas aleatorias con el fin de encontrar el circulo de radio maximo que cabia dentro de las moleculas del borde del canal ionico.
+
+Como se puede observar en las graficas, los resultados de los histogramas no concuerdan con lo esperado, pues el grupo de datos de mayor frecuencia no corresponde con el grupo donde se encuentra el centro con el radio maximo. Ademas, la caminata parece permanecer aleatorio y no converger hacia ningunos valores. Sin embargo, visualmente se puede concluir que los resultados obtenidos son satisfactorios. Lo anterior, se obtuvo para ambos grupos de datos.
+
+Cabe resltar que las unidades de la posicion en x y en y son Amstrong. Ademas, para evitar que el circulo toque alguno de los punto, se utilizo un margen de medio Amstrong.\\
+\\*
+\\*
+\\*
+\\*
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{walk1.png}
+\end{center}
+\caption{Resultados Caminata 1}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{walk2.png}
+\end{center}
+\caption{Resultados Caminata 2}
+\end{figure}
+
+\section{Circuito RC}
+
+En el segundo punto se desarrollo un codigo en Python. Dicho codigo busco encontrar a partir del uso de la funcion de verosimilitud y los metodos de montecarlo (Metropolis Hasting) el mejor fit para los datos observados. Dicho mejor fit lo hizo a partir de encontrar los valores optimos de Resistencia  y Capacitancia para los que el modelo presentado en la tarea funciona mejor. Cabe destacar que en la grafica los datos de R se encuentran en Ohmios ($\omega$) y los de Capacitancia en Faradios ($F$). En este caso, no fue posible establecer un guess inicial aleatorio pues es necesario que este guesss este relativamente cercano a la funcion que desea modelar, de lo contrario la funcion de verosimilitud no permite realizar la caminata. Como se puede observar en la grafica, el fit obtenido es visualmente exitoso y las frecuencias en los histogramas son de acuerdo con lo esperado, pues la mayor frecuencia de datos en la caminata es alrededor de los datos optimos. Adicionalmente, en las graficas de las caminatas se puede observar como convergen los puntos hacia los optimos encontrados.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{circuitoRC.png}
+\end{center}
+\caption{Resultados Caminata Circuito RC}
+\end{figure}
+
+Nota: Lamento no utilizar tildes, no pude descubrir como hacerlo en el editor.
+\end{document}
+
